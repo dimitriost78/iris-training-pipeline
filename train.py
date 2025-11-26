@@ -1,4 +1,5 @@
 import argparse
+import joblib
 
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
@@ -44,6 +45,7 @@ def train(C=1.0):
     acc = accuracy_score(y_test, y_pred)
 
     print(f"Test accuracy: {acc:.3f}")
+    joblib.dump(model_pipeline, "iris_model.pkl")
     return acc
 
 
